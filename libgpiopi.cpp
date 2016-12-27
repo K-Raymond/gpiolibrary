@@ -90,6 +90,11 @@ int rpi_pin::get_value( string& value )
 		return -1;
 	}
 	fvalue >> value;
+	if( value > 0 )
+		value = "1";
+	else
+		value = "0";
+	
 	fvalue.close();
 	return 0;
 }

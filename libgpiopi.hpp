@@ -5,6 +5,23 @@
 
 #include <string>
 
+/*
+A basic library for controlling the gpio pins on a raspberry pi
+
+Uses an intellegent interface to manage pins:
+1. construct the pin
+2. export the pin and then specify if the pin should be output or input
+3. set the value of the output
+
+ie,
+rpi_pin led_p17(17);
+led_p17.export();
+led_p17.output();
+
+if( condition ) set_value("1");
+
+*/
+
 class rpi_pin
 {
 	public:
@@ -14,10 +31,10 @@ class rpi_pin
 	int unexport(); //unexport the pin
 	int intput(); //Set pin as input
 	int output(); //Set pin as output
+	int get_value(string& value); //Get current value
 	
 	// Output functions
 	int set_value(string value); //Set current value
-	int get_value(string& value); //Get current value
 	
 	private:
 	int pin;
