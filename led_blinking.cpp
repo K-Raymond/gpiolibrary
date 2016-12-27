@@ -10,8 +10,8 @@ int main(void)
 	// Blink LED 6 times
 	unsigned int sleeptime = 170; //milliseconds
 	// Setup pin 17
-	rpi_pin::rpi_pin led_p17(17);
-	led_p17.export();
+	rpi_pin led_p17(17);
+	led_p17.pin_export();
 	std::cout << "Pin exported" << std::endl;
 	led_p17.output();
 	
@@ -20,12 +20,12 @@ int main(void)
 	{
 		usleep(sleeptime * 1000); //microseconds
 		led_p17.set_value("1");
-		usleep(sleeptime * 1000);
+		std::usleep(sleeptime * 1000);
 		led_p17.set_value("0");
 		i++;
 	}
 	
 	// cleanup
-	led_p17.unexport();
+	led_p17.pin_unexport();
 	return 0;
 }

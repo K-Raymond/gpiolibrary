@@ -6,17 +6,12 @@
 #include <string>
 #include "libgpiopi.hpp"
 
-rpi_pin::rpi_pin()
-{
-	// Do not run!
-}
-
 rpi_pin::rpi_pin( int new_pin ) : pin( new_pin )
 {
 	// Standard constructor
 }
 
-int rpi_pin::export()
+int rpi_pin::pin_export()
 {
 	std::ofstream export_file( "/sys/class/gpio/export" );
 	if ( export_file < 0 )
@@ -29,7 +24,7 @@ int rpi_pin::export()
 	return 0;
 }
 
-int rpi_pin::unexport()
+int rpi_pin::pin_unexport()
 {
 	std::ofstream unexport_file( "/sys/class/gpio/unexport" )
 	if (unexport_file < 0 )
@@ -68,7 +63,7 @@ int rpi_pin::output()
 	return 0;
 }
 
-int rpi_pin::set_value( string value )
+int rpi_pin::set_value( std::string value )
 {
 	std::ofstream fvalue( "/sys/class/gpio" + std::to_string(pin) + "/value" );
 	if ( fvalue < 0 )
@@ -81,7 +76,7 @@ int rpi_pin::set_value( string value )
 	return 0;
 }
 
-int rpi_pin::get_value( string& value )
+int rpi_pin::get_value( std::string& value )
 {
 	std::ofstream fvalue( "/sys/class/gpio" + std::to_string(pin) + "/value" );
 	if ( fvalue < 0 )

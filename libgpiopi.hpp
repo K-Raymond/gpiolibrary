@@ -25,19 +25,21 @@ if( condition ) set_value("1");
 class rpi_pin
 {
 	public:
+	
 	rpi_pin(); // Should never be run
 	rpi_pin(int pin); //Create a gpio pin instance
 	int export(); //export the pin
 	int unexport(); //unexport the pin
-	int intput(); //Set pin as input
-	int output(); //Set pin as output
-	int get_value(string& value); //Get current value
+	int pin_intput(); //Set pin as input
+	int pin_output(); //Set pin as output
+	int get_value(std::string& value); //Get current value
 	
 	// Output functions
-	int set_value(string value); //Set current value
+	int set_value(std::string value); //Set current value
 	
 	private:
+	
 	int pin;
-}
+};
 
 #endif
