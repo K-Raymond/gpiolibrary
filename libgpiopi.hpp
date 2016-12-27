@@ -28,10 +28,10 @@ class rpi_pin
 	
 	rpi_pin(); // Should never be run
 	rpi_pin(int pin); //Create a gpio pin instance
-	int export(); //export the pin
-	int unexport(); //unexport the pin
-	int pin_intput(); //Set pin as input
-	int pin_output(); //Set pin as output
+	int pin_export(); //export the pin
+	int pin_unexport(); //unexport the pin
+	int intput(); //Set pin as input
+	int output(); //Set pin as output
 	int get_value(std::string& value); //Get current value
 	
 	// Output functions
