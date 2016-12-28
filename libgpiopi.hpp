@@ -19,27 +19,30 @@ led_p17.export();
 led_p17.output();
 
 if( condition ) set_value("1");
+etc, etc.
 
+Most functions output an error value of -1.
+User's should use this to check that each function has done it's job.
 */
 
 class rpi_pin
 {
-	public:
-	
-	rpi_pin(); // Should never be run
-	rpi_pin(int pin); //Create a gpio pin instance
-	int pin_export(); //export the pin
-	int pin_unexport(); //unexport the pin
-	int input(); //Set pin as input
-	int output(); //Set pin as output
-	int get_value(std::string& value); //Get current value
-	
-	// Output functions
-	int set_value(std::string value); //Set current value
-	
-	private:
-	
-	int pin;
+    public:
+    
+    rpi_pin(); // Should never be run
+    rpi_pin(int pin); //Create a gpio pin instance
+    int pin_export(); //export the pin
+    int pin_unexport(); //unexport the pin
+    int input(); //Set pin as input
+    int output(); //Set pin as output
+    int get_value(std::string& value); //Get current value
+    
+    // Output functions
+    int set_value(std::string value); //Set current value
+    
+    private:
+    
+    int pin;
 };
 
 #endif
